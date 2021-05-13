@@ -1,12 +1,27 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <theme-provider :theme="themeConf">
+      <div id="nav">
+        <router-link to="/cssTheme">css变量主题</router-link>
+        <router-link to="/lessTheme">less变量主题</router-link>
+        <router-link to="/styleTheme">style替换主题</router-link>
+        <router-link to="/cssInJsTheme">cssInJs替换主题</router-link>
+      </div>
+      <router-view/>
+    </theme-provider>
   </div>
 </template>
+<script>
+import { mapGetters } from 'vuex';
+
+export default {
+  computed: {
+    ...mapGetters('theme', [
+      'themeConf',
+    ]),
+  },
+};
+</script>
 
 <style>
 #app {
@@ -19,11 +34,14 @@
 
 #nav {
   padding: 30px;
+  display: flex;
+  justify-content: center;
 }
 
 #nav a {
   font-weight: bold;
   color: #2c3e50;
+  margin-left: 15px;
 }
 
 #nav a.router-link-exact-active {
