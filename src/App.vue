@@ -6,6 +6,7 @@
         <router-link to="/lessTheme">less变量主题</router-link>
         <router-link to="/styleTheme">style替换主题</router-link>
         <router-link to="/cssInJsTheme">cssInJs替换主题</router-link>
+        <router-link to="/cssVarsPonyfill">CssVarsPonyfill替换主题</router-link>
       </div>
       <router-view/>
     </theme-provider>

@@ -24,6 +24,11 @@ const routes = [
     name: 'cssInJs主题',
     component: () => import(/* webpackChunkName: "about" */ '../views/CssInJs'),
   },
+  {
+    path: '/cssVarsPonyfill',
+    name: 'CssVarsPonyfill主题',
+    component: () => import(/* webpackChunkName: "about" */ '../views/CssVarsPonyfill'),
+  },
 ];
 
 const router = new VueRouter({
