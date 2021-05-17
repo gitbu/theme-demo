@@ -10,17 +10,22 @@
     <div class="box cssvar-theme">
       css变量切换主题
     </div>
+    <test />
   </div>
 </template>
 
 <script>
 import cssVars from 'css-vars-ponyfill';
 import theme from '@/theme/cssVarsPonyfill';
+import Test from '@/components/test.vue';
 
 const INITIALIZED_THEME = 'lighter';
 
 export default {
   name: 'App',
+  components: {
+    Test,
+  },
   data() {
     return {
       themeType: INITIALIZED_THEME,
