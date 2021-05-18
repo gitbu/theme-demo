@@ -14,26 +14,44 @@
 </template>
 
 <script>
-import '@/theme/cssVar.css';
-
-const INITIALIZED_THEME = 'lighter';
+import theme from '../theme/cssvar';
 
 export default {
   name: 'App',
   data() {
     return {
-      themeType: INITIALIZED_THEME,
+      themeType: 'dark',
     };
   },
   created() {
-    this.initTheme(INITIALIZED_THEME);
+    // this.initTheme(INITIALIZED_THEME);
   },
   methods: {
     initTheme(initializedTheme) {
       document.documentElement.setAttribute('theme', initializedTheme);
     },
-    handleTheme(theme) {
-      document.documentElement.setAttribute('theme', theme);
+    handleTheme(themeType) {
+      // 获取主题类型
+      const cssVars = theme[themeType];
+
+      // 生成css变量
+      let cssVarContent = ':root {';
+      Object.entries(cssVars).forEach(([key, value]) => {
+        const a = `${key}: ${value};`;
+        cssVarContent += a;
+      });
+      cssVarContent += '}';
+
+      // 设置到head的style中
+      const headEle = document.querySelector('head');
+      const styleId = 'custom-theme';
+      let customStyleEle = document.querySelector(`#${styleId}`);
+      if (!customStyleEle) {
+        customStyleEle = document.createElement('style');
+        customStyleEle.setAttribute('id', 'custom-theme');
+        customStyleEle.innerHTML = cssVarContent;
+      }
+      headEle.appendChild(customStyleEle);
     },
   },
 };
