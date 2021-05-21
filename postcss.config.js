@@ -1,13 +1,19 @@
-const defaultTheme = require('./src/theme/cssvar/default');
+// const postcssThemes = require("postcss-themes");
+// const postcssCssVariables = require('postcss-css-variables');
+// const postcssPresetEnv = require('postcss-preset-env');
+// const postcssImport = require('postcss-import');
 
-const postcssCustompProperties = require("postcss-custom-properties");
-
-module.exports = {
-  plugins: [
-    postcssCustompProperties({
-      importFrom: {
-        customProperties: defaultTheme,
-      },
-    }),
-  ],
-};
+// module.exports = {
+//   plugins: [
+//     postcssImport(),
+//     postcssThemes({
+//       themes: [{
+//         filePath: './src/theme/pcss/dark.css',
+//       }, {
+//         filePath: './src/theme/pcss/red.css',
+//       }],
+//     }),
+//     postcssCssVariables(),
+//     postcssPresetEnv(),
+//   ],
+// };
